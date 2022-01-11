@@ -1,47 +1,63 @@
 #pragma once
-
 #include <iostream>
-#include <vector>
-
-using namespace std;
-
 
 class Node
 {
-	int data_item;
-	Node* next_item;
-	friend class List;
-
+private:
+	int _data;
 public:
-	Node(int data_item, Node* next_item)
-	{
-		this->next_item = next_item;
-		this->data_item = data_item;
-	}
-};
+	Node* _next;
 
+	Node()
+	{
+		_data = NULL;
+		_next = nullptr;
+	}
+
+	Node(int data)
+	{
+		_data = data;
+		_next = nullptr;
+	}
+	int GetData()
+	{
+		return _data;
+	}
+
+};
 
 class List
 {
+private:
 	Node* head;
 	Node* tail;
 	size_t size_list;
 
-	const vector<int> getList();
+	void DeleteNode(Node* node, Node* prev_node);
 
-	friend ostream& operator<< (ostream& shift, List& point_list);
 public:
-
-	List() :head(nullptr), tail(nullptr), size_list(0) {};
+	List()
+	{
+		head = nullptr;
+		tail = nullptr;
+	}
 
 	const size_t size();
 
-	void addItem(const int data_item);
+	void PushBack(int data);
 
-	void changeNumberItem(const size_t number_item, const int selected_data_item);
+	void DeleteBookByData(int data);
 
-	void deleteItem(const size_t number_item);
+	void DeleteNodeByNumber(size_t number);
+
+	void SearchNodeByData(int data);
+
+	void SearchNodeByNumber(size_t number);
+
+	void InsertNodeByNumber(int data, int number);
 
 	~List();
+
 };
+
 

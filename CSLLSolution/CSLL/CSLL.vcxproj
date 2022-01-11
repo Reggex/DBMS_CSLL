@@ -140,6 +140,9 @@
   <ItemGroup>
     <ClCompile Include="CSLL.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Api.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
