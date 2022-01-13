@@ -138,10 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="CSLL.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Api.h" />
+    <ClInclude Include="Interface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSLL", "CSLL\CSLL.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSLL.Library", "CSLL.Library\CSLL.Library.vcxproj", "{7AC505B4-610D-4450-95F1-8DCA03D0BF88}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSLL.Test", "CSLL.Test\CSLL.Test.vcxproj", "{6598A2B8-8C42-443B-A6E4-F9F88D016874}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{7AC505B4-610D-4450-95F1-8DCA03D0BF88}.Release|x64.Build.0 = Release|x64
 		{7AC505B4-610D-4450-95F1-8DCA03D0BF88}.Release|x86.ActiveCfg = Release|Win32
 		{7AC505B4-610D-4450-95F1-8DCA03D0BF88}.Release|x86.Build.0 = Release|Win32
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Debug|x64.ActiveCfg = Debug|x64
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Debug|x64.Build.0 = Debug|x64
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Debug|x86.ActiveCfg = Debug|Win32
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Debug|x86.Build.0 = Debug|Win32
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Release|x64.ActiveCfg = Release|x64
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Release|x64.Build.0 = Release|x64
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Release|x86.ActiveCfg = Release|Win32
+		{6598A2B8-8C42-443B-A6E4-F9F88D016874}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

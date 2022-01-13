@@ -1,119 +1,132 @@
 #include "pch.h"
 #include "List.h"
 
-
-const size_t List::size()
-{
-	return size_list;
-}
-
 void List::PushBack(int data)
 {
 	Node* new_node = new Node(data);
-	if (head != nullptr)
+	if (_head != nullptr)
 	{
-		tail->_next = new_node;
-		new_node->_next = head;
-		tail = new_node;
+		_tail->_next = new_node;
+		new_node->_next = _head;
+		_tail = new_node;
 	}
 	else
 	{
-		head = tail = new_node;
+		_head = _tail = new_node;
 		new_node->_next = new_node;
 	}
-	size_list++;
+	_size_list++;
 }
 
 void List::DeleteNode(Node* node, Node* prev_node)
 {
 	prev_node -> _next = node->_next;
-	if (node == head) 
+	if (node == _head)
 	{
-		head = node -> _next;
+		_head = node -> _next;
 	}
-	if (node == tail)
+	if (node == _tail)
 	{
-		tail = prev_node;
+		_tail = prev_node;
 	}
 	delete node;
-	size_list--;
+	_size_list--;
 }
 
-void List::DeleteBookByData(int data) //надо выполнить проверку на сущестование данных
+void List::DeleteNodeByData(int data) 
 {
-	Node* node = head, * prev_node = tail;
-	for (size_t size = 0; size <= size_list; ++size)
+	int count = 0;
+	Node* node = _head, * prev_node = _tail;
+	for (size_t temp = 0; temp <= this->GetSizeList(); ++temp)
 	{
 		if (node->GetData() == data)
 		{
-			DeleteNode(node, prev_node);
+			this->DeleteNode(node, prev_node);
+			count++;
 		}
 		node = node->_next;
 		prev_node = prev_node->_next;
 	}
-}
-
-void List::DeleteNodeByNumber(size_t number) //надо выполнить проверку на намбер
-{
-	int size = 0;
-	Node* node = head, * prev_node = tail;
-	while (size < number)
+	if (count == 0)
 	{
-		node = node->_next;
-		prev_node = prev_node->_next;
+		std::cout << "Error delete method: nodes with data \"" << data << "\" not found" << std::endl;
 	}
-	DeleteNode(node, prev_node);
 }
 
-List::~List()
+void List::DeleteNodeByNumber(int number) 
 {
-	while (size() != 0)
+	if (number <= this->GetSizeList())
 	{
-		Node* temp = head->_next;
-		if (head != nullptr)
+		int temp = 0;
+		Node* node = _head, * prev_node = _tail;
+		while (temp < number)
 		{
-			delete head;
-			head = nullptr;
+			node = node->_next;
+			prev_node = prev_node->_next;
+			temp++;
 		}
-		head = temp;
-		size_list--;
+		this->DeleteNode(node, prev_node);
 	}
+	else
+	{
+		std::cout << "Error delete method: nodes with number \"" << number << "\" not found" << std::endl;
+	}
+
 }
 
-void List::SearchNodeByData(int data)  //надо выполнить проверку на сущестование данных
+
+Node* List::GetFirstNodeByData(int data) 
 {
-	Node* node = head;
-	for (size_t size = 0; size <= size_list; ++size)
+	Node* node = _head;
+	for (size_t temp = 0; temp <= this->GetSizeList(); ++temp)
 	{
 		if (node->GetData() == data)
 		{
-			std::cout << node;
+			return node;
 		}
 		node = node->_next;
 	}
+	return nullptr;
 }
 
-void List::SearchNodeByNumber(size_t number) //надо выполнить проверку на намбер
+Node* List::GetNodeByPosition(int number) 
 {
-	int size = 0;
-	Node* node = head;
-	while (size < number)
+	if (number <= this->GetSizeList())
 	{
-		node = node->_next;
+		int temp = 0;
+		Node* node = _head;
+		while (temp < number)
+		{
+			node = node->_next;
+			temp++;
+		}
+		return node;
 	}
-	std::cout << node;
+	else 
+	{
+		return nullptr;
+	}
 }
 
-void List::InsertNodeByNumber(int data, int number)  //надо выполнить проверку на намбер
+void List::InsertNodeByNumber(int data, int number)  
 {
-	int size = 0;
+	int temp = 1;
+	if (number > this->GetSizeList())
+	{
+		this->PushBack(data);
+		return;
+	}
 	Node* new_node = new Node(data);
-	Node* node = head;
-	while (size < number)
+	Node* prev_node = _tail;
+	Node* next_node = _head;
+	while (temp < number)
 	{
-		node = node->_next;
+		prev_node = prev_node->_next;
+		next_node = next_node->_next;
+		temp++;
 	}
-	tail->_next = new_node;
-	new_node->_next = head;
-	tail = new_node;
+	prev_node->_next = new_node;
+	new_node->_next = next_node;
+	_size_list++;
 }
+
