@@ -27,7 +27,7 @@ void FillList(List *circular_single_list, int size)
 	}
 }
 
-void DeleteByNumber() 
+void DeleteByNumber(List* circular_single_list)
 {
 	int number;
 	cout << "Input number, which" << endl;
@@ -37,6 +37,7 @@ void DeleteByNumber()
 		cout << "Uncorrect number. Try again" << endl;
 		cin >> number;
 	}
+	circular_single_list->DeleteNodeByNumber(number);
 }
 
 void DeleteByData();
