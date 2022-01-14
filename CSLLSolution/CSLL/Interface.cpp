@@ -30,21 +30,34 @@ void FillList(List *circular_single_list, int size)
 void DeleteByNumber(List* circular_single_list)
 {
 	int number;
-	cout << "Input number, which" << endl;
+	cout << "Input number, which element you want to remove" << endl;
 	cin >> number;
-	while (number <= 0)
-	{
-		cout << "Uncorrect number. Try again" << endl;
-		cin >> number;
-	}
 	circular_single_list->DeleteNodeByNumber(number);
 }
 
-void DeleteByData();
+void DeleteByData(List* circular_single_list)
+{
+	int data;
+	cout << "Input data, which element you want to remove" << endl;
+	cin >> data;
+	circular_single_list->DeleteNodeByNumber(data);
+}
 
-void SearchByNumber();
+void SearchByNumber(List * circular_single_list)
+{
+	int number;
+	cout << "Input number, which element you want to receive" << endl;
+	cin >> number;
+	circular_single_list->DeleteNodeByNumber(number);
+}
 
-void SearchByData();
+void SearchByData(List* circular_single_list)
+{
+	int data;
+	cout << "Input data, which element you want to receive" << endl;
+	cin >> data;
+	circular_single_list->DeleteNodeByNumber(data);
+}
 
 void InserrtNode();
 
