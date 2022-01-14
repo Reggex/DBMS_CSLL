@@ -61,4 +61,7 @@ void SearchByData(List* circular_single_list)
 
 void InserrtNode();
 
-void DeleteList();
+void DeleteList(List* circular_single_list) 
+{
+	delete circular_single_list;
+}
