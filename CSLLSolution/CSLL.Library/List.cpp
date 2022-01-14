@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "List.h"
 
-void List::PushBack(int data)
+void List::PushBack(const int data)
 {
 	Node* new_node = new Node(data);
 	if (_head != nullptr)
@@ -33,7 +33,7 @@ void List::DeleteNode(Node* node, Node* prev_node)
 	_size_list--;
 }
 
-void List::DeleteNodeByData(int data) 
+void List::DeleteNodeByData(const int data)
 {
 	int count = 0;
 	Node* node = _head, * prev_node = _tail;
@@ -53,7 +53,7 @@ void List::DeleteNodeByData(int data)
 	}
 }
 
-void List::DeleteNodeByNumber(int number) 
+void List::DeleteNodeByNumber(int number)
 {
 	if (number <= this->GetSizeList())
 	{
@@ -75,7 +75,7 @@ void List::DeleteNodeByNumber(int number)
 }
 
 
-Node* List::GetFirstNodeByData(int data) 
+Node* List::GetFirstNodeByData(const int data)
 {
 	Node* node = _head;
 	for (size_t temp = 0; temp <= this->GetSizeList(); ++temp)
@@ -89,7 +89,7 @@ Node* List::GetFirstNodeByData(int data)
 	return nullptr;
 }
 
-Node* List::GetNodeByPosition(int number) 
+Node* List::GetNodeByPosition(const int number)
 {
 	if (number <= this->GetSizeList())
 	{
@@ -108,7 +108,7 @@ Node* List::GetNodeByPosition(int number)
 	}
 }
 
-void List::InsertNodeByNumber(int data, int number)  
+void List::InsertNodeByNumber(const int data, const int number)
 {
 	int temp = 1;
 	if (number > this->GetSizeList())

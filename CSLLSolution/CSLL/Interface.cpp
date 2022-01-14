@@ -27,9 +27,23 @@ void FillList(List *circular_single_list, int size)
 	}
 }
 
-void DeleteNode();
+void DeleteByNumber() 
+{
+	int number;
+	cout << "Input number, which" << endl;
+	cin >> number;
+	while (number <= 0)
+	{
+		cout << "Uncorrect number. Try again" << endl;
+		cin >> number;
+	}
+}
 
-void SearchNode();
+void DeleteByData();
+
+void SearchByNumber();
+
+void SearchByData();
 
 void InserrtNode();
 

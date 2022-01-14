@@ -5,10 +5,10 @@ int GetSizeListByUser();
 
 void FillList(List* circular_single_list, int size);
 
-void DeleteNode();
+void DeleteByNumber();
 
-void SearchNode();
+void DeleteByData();
 
-void InserrtNode();
+void SearchByNumber();
 
-void DeleteList();
+void SearchByData();

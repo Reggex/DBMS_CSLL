@@ -61,40 +61,40 @@ public:
 	 * \brief Добавление в конец списка элементов.
 	 * \param data Данные узла.
 	 */
-	void PushBack(int data);
+	void PushBack(const int data);
 
 /**
 	 * \brief Удаление узла по входным данным.
 	 * \param data Данные узла.
 	 */
-	void DeleteNodeByData(int data);
+	void DeleteNodeByData(const int data);
 
 /**
 	 * \brief Удаление узла по номеру узла.
 	 * \param number Номер узла.
 	 */
-	void DeleteNodeByNumber(int number);
+	void DeleteNodeByNumber(const int number);
 
 /**
 	 * \brief Получение узла по входным данным.
 	 * \param data Данные узла.
 	 * \return node* Узел списка.
 	 */
-	Node* GetFirstNodeByData(int data);
+	Node* GetFirstNodeByData(const int data);
 
 /**
 	 * \brief Получение узла номеру.
 	 * \param number Номер узла.
 	 * \return node* Узел списка.
 	 */
-	Node* GetNodeByPosition(int number);
+	Node* GetNodeByPosition(const int number);
 
 /**
 	 * \brief Вставка нового узла номеру.
 	 * \param data Данные нового узла.
 	 * \param number Номер узла.
 	 */
-	void InsertNodeByNumber(int data, int number);
+	void InsertNodeByNumber(const int data, const int number);
 
 /**
 	 * \brief Удаление списка. Деструктор.
