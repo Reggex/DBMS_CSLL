@@ -33,11 +33,11 @@ void List::DeleteNode(Node* node, Node* prev_node)
 	_size_list--;
 }
 
-void List::DeleteNodeByData(const int data)
+void List::DeleteFirstNodeByData(const int data)
 {
 	int count = 0;
 	Node* node = _head, * prev_node = _tail;
-	for (size_t temp = 0; temp <= this->GetSizeList(); ++temp)
+	for (size_t temp = 0; temp < this->GetSizeList() && count == 0; ++temp)
 	{
 		if (node->GetData() == data)
 		{
@@ -53,13 +53,13 @@ void List::DeleteNodeByData(const int data)
 	}
 }
 
-void List::DeleteNodeByNumber(int number)
+void List::DeleteNodeByPosition(int position)
 {
-	if (number <= this->GetSizeList())
+	if (position < this->GetSizeList())
 	{
 		int temp = 0;
 		Node* node = _head, * prev_node = _tail;
-		while (temp < number)
+		while (temp < position)
 		{
 			node = node->_next;
 			prev_node = prev_node->_next;
@@ -69,16 +69,15 @@ void List::DeleteNodeByNumber(int number)
 	}
 	else
 	{
-		std::cout << "Error delete method: nodes with number \"" << number << "\" not found" << std::endl;
+		std::cout << "Error delete method: nodes with number \"" << position << "\" not found" << std::endl;
 	}
 
 }
 
-
 Node* List::GetFirstNodeByData(const int data)
 {
 	Node* node = _head;
-	for (size_t temp = 0; temp <= this->GetSizeList(); ++temp)
+	for (size_t temp = 0; temp < this->GetSizeList(); ++temp)
 	{
 		if (node->GetData() == data)
 		{
@@ -89,13 +88,13 @@ Node* List::GetFirstNodeByData(const int data)
 	return nullptr;
 }
 
-Node* List::GetNodeByPosition(const int number)
+Node* List::GetNodeByPosition(const int position)
 {
-	if (number <= this->GetSizeList())
+	if (position < this->GetSizeList())
 	{
 		int temp = 0;
 		Node* node = _head;
-		while (temp < number)
+		while (temp < position)
 		{
 			node = node->_next;
 			temp++;
@@ -108,25 +107,37 @@ Node* List::GetNodeByPosition(const int number)
 	}
 }
 
-void List::InsertNodeByNumber(const int data, const int number)
+List::~List()
 {
-	int temp = 1;
-	if (number > this->GetSizeList())
+	while (GetSizeList() != 0)
 	{
-		this->PushBack(data);
-		return;
+		Node* temp = _head->_next;
+		if (_head != nullptr)
+		{
+			delete _head;
+			_head = nullptr;
+		}
+		_head = temp;
+		_size_list--;
 	}
-	Node* new_node = new Node(data);
-	Node* prev_node = _tail;
-	Node* next_node = _head;
-	while (temp < number)
-	{
-		prev_node = prev_node->_next;
-		next_node = next_node->_next;
-		temp++;
-	}
-	prev_node->_next = new_node;
-	new_node->_next = next_node;
-	_size_list++;
 }
+
+std::ostream& operator<< (std::ostream& out, const List& list)
+{
+	Node* node = list._head;
+	for (size_t temp = 0; temp < list._size_list; ++temp)
+	{
+		out << *node << " ";
+		node = node->_next;
+	}
+	return out;
+}
+
+std::ostream& operator<< (std::ostream& out, const Node& node)
+{
+	out << node._data; 
+	return out;
+}
+
+
 
