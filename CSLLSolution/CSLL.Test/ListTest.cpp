@@ -144,7 +144,3 @@ TEST_F(ListTest, OutputList_OutputThirdData) //Вывод списка
     }
     std::cout << *list <<std::endl;
 }
-
-
-
-

@@ -138,6 +138,3 @@ std::ostream& operator<< (std::ostream& out, const Node& node)
 	out << node._data; 
 	return out;
 }
-
-
-
